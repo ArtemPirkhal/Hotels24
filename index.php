@@ -7,10 +7,11 @@ spl_autoload_register(function($className) {
     }
 });
 
-use tools\writing\Pen as Pen;
+use tools\writing\Autopen as Autopen;
 use consts\Color as Color;
 
-$writingTool = new Pen(Color::RED, 5);
+$writingTool = new Autopen(Color::RED, 5);
+$writingTool->toggle();
 $writingTool->draw('HelloWorld');
 $writingTool->fill(Color::BLUE, 5);
 $writingTool->draw('World');
