@@ -7,11 +7,17 @@ spl_autoload_register(function($className) {
     }
 });
 
-use tools\writing\MechPensil as MechPensil;
+use tools\writing\MultiCorePen as MultiCorePen;
 use consts\Color as Color;
+use tools\writing\Core;
 
-$writingTool = new MechPensil(array(5,5));
+$writingTool = new MultiCorePen(
+        array(
+            new Core(Color::BLUE, 5),
+            new Core(Color::GREEN, 5)
+            )
+        );
 $writingTool->toggle();
 $writingTool->draw('HelloWorld');
-$writingTool->toggle();
+$writingTool->selectCore(1);
 $writingTool->draw('World');
